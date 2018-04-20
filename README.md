@@ -1,10 +1,10 @@
 # LAMP_Ansible
-<b>RUNNING</b>
+<h3><b>RUNNING</b></h3>
 <pre>
-APACHE
-  <ul>ansible-playbook -i inventory.txt apache.yml -K</ul>
-PHP
-  <ul>ansible-playbook -i inventory.txt php.yml -K</ul>
-MYSQL
-  <ul>ansible-playbook -i inventory.txt mysql.yml -K</ul>
+<b>APACHE</b>
+  ansible-playbook -i inventory.txt apache.yml -K
+<b>PHP</b>
+  ansible-playbook -i inventory.txt php.yml -K
+<b>MYSQL</b>
+  ansible-playbook -i inventory.txt mysql.yml -K
 </pre>
