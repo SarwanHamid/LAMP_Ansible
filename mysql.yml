@@ -1,0 +1,30 @@
+- name: Install MySQL database server
+  hosts: all
+  su: yes
+  become_method: sudo
+  gather_facts: true
+  tags: [database]
+  tasks:
+  - name: Update the software package repository
+    apt:
+    update_cache: yes
+  - name: Install MySQL
+    package:
+    name: "{{ item }}"
+    state: latest
+    with_items:
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
+  - name: Start the server
+    service: 
+    name: mysql
+    state: started
+    - wait_for: 
+      port: 3306
+    - mysql_user:
+      name: root
+      password: ''
+      encrypted: yes
+      priv: '*.*:ALL,GRANT'
+      state: present

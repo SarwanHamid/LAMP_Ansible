@@ -1,0 +1,7 @@
+- hosts: all
+  su: yes
+  tasks:
+  - name: stop nginx
+    command: service nginx stop
+  - name: install apache2
+    apt: name=apache2 state=latest
